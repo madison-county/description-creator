@@ -1,0 +1,38 @@
+arcpy.management.CalculateField(in_table=fc, field="Direction", expression="Reclass(!BEARING!)", expression_type="PYTHON3", code_block="""
+def Reclass(Dir):
+   if (Dir   < 360 and Dir > 348.75 ): 
+       return "North" 
+   elif (Dir  > 0 and Dir < 11.25 ):
+       return "North"
+   elif (Dir  > 11.25 and Dir < 33.75 ): 
+       return "NNE"
+   elif (Dir  > 33.75 and Dir < 56.25 ):
+       return "Northeast"
+   elif (Dir  > 56.25 and Dir < 78.75 ):
+       return "ENE"
+   elif (Dir  > 78.75 and Dir < 101.25 ):
+       return "East"
+   elif (Dir  > 101.25 and Dir < 123.75 ):
+       return "ESE"
+   elif (Dir  > 123.75 and Dir < 146.25 ):
+       return "Souteast"
+   elif (Dir  > 146.25 and Dir < 168.75 ):
+       return "SSE"
+   elif (Dir  > 168.75 and Dir < 191.25 ):
+       return "South"
+   elif (Dir  > 191.25 and Dir < 213.75 ):
+       return "SSW"
+   elif (Dir  > 213.75 and Dir < 236.25 ):
+       return "Southwest"
+   elif (Dir  > 236.25 and Dir < 258.75 ):
+       return "WSW"
+   elif (Dir  > 258.75 and Dir < 281.25 ):
+       return "West"
+   elif (Dir  > 281.25 and Dir < 303.75 ):
+       return "WNW"
+   elif (Dir  > 303.75 and Dir < 326.25 ):
+       return "Northwest"
+   elif (Dir  > 326.25 and Dir < 348.75 ):
+       return "NNW"
+   else:
+       return "Error" """,    field_type="TEXT",    enforce_domains="NO_ENFORCE_DOMAINS")

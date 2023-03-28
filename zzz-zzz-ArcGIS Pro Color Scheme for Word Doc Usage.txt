@@ -1,0 +1,6 @@
+These are the colors needed to emulate ArcGIS Pro text in a MS Word document: 
+#ADADAD	=	Gray
+#2694F3	=	Blue
+#B2844C	=	Brown
+#97C89B	=	Green
+#91BAFF	=	print statement Blue
